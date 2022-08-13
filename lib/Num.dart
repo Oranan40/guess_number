@@ -4,14 +4,24 @@ import 'dart:io';
 import 'numnum.dart';
 
 void main(){
-  int sum = 0;
+  var n;
   while(true){
-  var n = Numnum ();
+    print("intput maxrandom");
+    var input = stdin.readLineSync();
+    var count;
+    if(input==""){
+      n = Numnum ();
+    }else{
+      var x = int.tryParse(input!);
+      count = x;
+      n = Numnum(x!);
+    }
+
   int result = 0;
 
   do {
     print("");
-    stdout.write("Please guess the number between 1 and 100 : ");
+    stdout.write("Please guess the number between 1 and $count : ");
     var input = stdin.readLineSync();
     var guess = int.tryParse(input!);
     if (guess == null) {
@@ -19,13 +29,12 @@ void main(){
       continue;
     }
     result = n.doguess(guess);
-    sum++;
   } while (result != 1);
+  n.length();
   print("Please enter Yes Or No");
   var play = stdin.readLineSync();
   if(play=="No"){
     break;
   }
 }
-print("$sum in a row");
 }
