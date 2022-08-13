@@ -27,5 +27,5 @@ void main(){
     break;
   }
 }
-print("$sum");
+print("$sum in a row");
 }
